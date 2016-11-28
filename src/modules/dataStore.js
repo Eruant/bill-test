@@ -1,6 +1,8 @@
+/* globals fetch */
+
 const {createStore} = require('redux')
 const dataStoreActions = require('./dataStoreActions')
-const fetch = require('node-fetch')
+const isNode = require('detect-node')
 
 let store
 
@@ -18,23 +20,25 @@ const storeFactory = (state = defaultState, action) => {
   switch (action.type) {
     // Bill API Request
     case dataStoreActions.getBillRequest:
-      fetch(`/api/bills/${action.id}`)
-        .then(response => response.json())
-        .then(data => {
-          return {
-            data,
-            type: dataStoreActions.getBillSuccess
-          }
-        })
-        .catch(error => {
-          return {
-            error,
-            type: dataStoreActions.getBillFailure
-          }
-        })
-        .then(action => {
-          store.dispatch(action)
-        })
+      if (!isNode) {
+        fetch(`/api/bills/${action.id}`)
+          .then(response => response.json())
+          .then(data => {
+            return {
+              data,
+              type: dataStoreActions.getBillSuccess
+            }
+          })
+          .catch(error => {
+            return {
+              error,
+              type: dataStoreActions.getBillFailure
+            }
+          })
+          .then(action => {
+            store.dispatch(action)
+          })
+      }
 
       data = Object.assign({}, state.data, {
         data: null,
