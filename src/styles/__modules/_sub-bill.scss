@@ -1,64 +1,71 @@
 .sub-bill__title:after {
-    content: '';
-    margin-left: 0.5em;
-    display: inline-block;
-    width: 8px;
-    height: 16px;
-    background-image: url(/resources/arrow.svg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    transition: transform 0.15s ease-in-out;
-    transform-origin: center center;
-}
-.hidden .sub-bill__title:after {
+  content: '';
+  margin-left: 0.5em;
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-image: url(/resources/arrow.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: transform 0.15s ease-in-out;
+  transform-origin: center center;
+
+  .hidden & {
     transform: rotate(90deg);
+  }
 }
-.sub-bill__content table {
-    width: 100%;
-}
-.sub-bill__content thead {
-    background-color: $color-dark;
-}
-.sub-bill__content thead tr th {
-    color: $color-light;
-}
-.sub-bill__content tbody tr:nth-child(odd) {
-    background-color: $color-light;
-}
-.sub-bill__content th {
-    text-transform: capitalize;
-}
-.sub-bill__content th,
-.sub-bill__content td {
-    text-align: center;
-}
-.hidden .sub-bill__content {
+
+.sub-bill__content {
+  .hidden & {
     display: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  thead {
+    background-color: $color-dark;
+  }
+
+  th {
+    color: $color-light;
+    text-transform: capitalize;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: $color-light;
+  }
+
+  th, td {
+    text-align: center;
+  }
 }
+
 @media (max-width: $bp-tablet) {
-    .sub-bill__content thead,
-    .sub-bill__content tbody,
-    .sub-bill__content th,
-    .sub-bill__content td,
-    .sub-bill__content tr {
-        display: block;
+  .sub-bill__content {
+    thead, tbody, th, td, tr {
+      display: block;
     }
-    .sub-bill__content thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
     }
-    .sub-bill__content tbody tr:nth-child(odd) {
-        background-color: inherit;
+
+    tbody tr:nth-child(odd) {
+      background-color: inherit;
     }
-    .sub-bill__content td {
-        border: none;
-        position: relative;
-        padding-left: 30%;
-        text-align: left;
-        background-color: $color-light;
-    }
-    .sub-bill__content td:before {
+
+    td {
+      border: none;
+      position: relative;
+      padding-left: 30%;
+      text-align: left;
+      background-color: $color-light;
+
+      &:before {
         position: absolute;
         top: 0;
         left: 0;
@@ -70,5 +77,7 @@
         text-transform: capitalize;
         background-color: $color-dark;
         color: $color-light;
+      }
     }
+  }
 }
