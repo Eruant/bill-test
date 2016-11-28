@@ -1,0 +1,36 @@
+$bp-tablet: 601px;
+
+* {
+    font-family: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+}
+*+* {
+    margin-top: 1.5em;
+}
+html {
+    font-size: 100%;
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+    color: $color-dark;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    background-color: $color-light;
+}
+body,
+br,
+li,
+dt,
+dd,
+th,
+td,
+option {
+    margin-top: 0;
+}
+@media (min-width: 601px) {
+    body {
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+}
