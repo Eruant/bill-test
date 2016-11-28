@@ -1,0 +1,57 @@
+{
+  "name": "simple-bill",
+  "version": "0.0.1",
+  "private": true,
+  "nyc": {
+    "extension": [
+      ".js"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "node_modules"
+    ]
+  },
+  "scripts": {
+    "clean": "rm -rf lib",
+    "postclean": "mkdir lib",
+    "prebuild": "npm run clean",
+    "build": "npm run static && npm run transform && npm run client && npm run styles",
+    "static": "cp -r src/static lib",
+    "transform": "babel src -d lib",
+    "client": "webpack",
+    "styles": "node-sass --output-style compressed src/styles/index.scss lib/static/bundle.css",
+    "poststyles": "postcss --use autoprefixer lib/static/bundle.css -d lib/static",
+    "start": "nodemon lib/server",
+    "pretest": "standard src/**/*.js",
+    "test": "nyc --reporter=lcov --reporter=text tape ./lib/**/*.spec.js"
+  },
+  "dependencies": {
+    "good": "7.0.2",
+    "good-console": "6.3.1",
+    "good-squeeze": "5.0.1",
+    "h2o2": "5.4.0",
+    "hapi": "15.2.0",
+    "inert": "4.0.2",
+    "moment": "2.17.0",
+    "node-fetch": "1.6.3",
+    "nodemon": "1.11.0",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
+    "redux": "3.6.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.5.3",
+    "autoprefixer-loader": "3.2.0",
+    "babel-cli": "6.18.0",
+    "babel-core": "6.18.2",
+    "babel-loader": "6.2.8",
+    "babel-preset-latest": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "node-sass": "3.13.0",
+    "nyc": "10.0.0",
+    "postcss-cli": "2.6.0",
+    "standard": "8.6.0",
+    "tape": "4.6.3",
+    "webpack": "1.13.3"
+  }
+}

@@ -1,0 +1,22 @@
+const tape = require('tape')
+const EN_UK = require('./en-uk')
+
+tape('en-uk', test => {
+  test.equal(typeof EN_UK, 'object', 'en-uk should be an object')
+  test.equal(EN_UK.hasOwnProperty('title'), true, 'should contain a title')
+  test.equal(EN_UK.hasOwnProperty('footer'), true, 'should contain a footer')
+  test.equal(EN_UK.hasOwnProperty('summary'), true, 'should contain a summary')
+  test.equal(EN_UK.summary.hasOwnProperty('title'), true, 'should contain a title')
+  test.equal(EN_UK.summary.hasOwnProperty('total'), true, 'should contain a total')
+  test.equal(EN_UK.summary.hasOwnProperty('generated'), true, 'should contain a generated')
+  test.equal(EN_UK.summary.hasOwnProperty('due'), true, 'should contain a due')
+  test.equal(EN_UK.summary.hasOwnProperty('period'), true, 'should contain a period')
+  test.equal(EN_UK.hasOwnProperty('package'), true, 'should contain a package')
+  test.equal(EN_UK.package.hasOwnProperty('title'), true, 'should contain a title')
+  test.equal(EN_UK.hasOwnProperty('callCharges'), true, 'should contain a callCharges')
+  test.equal(EN_UK.callCharges.hasOwnProperty('title'), true, 'should contain a title')
+  test.equal(EN_UK.hasOwnProperty('skyStore'), true, 'should contain a skyStore')
+  test.equal(EN_UK.skyStore.hasOwnProperty('title'), true, 'should contain a title')
+
+  test.end()
+})

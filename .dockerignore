@@ -1,0 +1,6 @@
+node_modules
+lib
+coverage
+README.md
+start.sh
+yarn.lock

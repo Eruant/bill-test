@@ -1,0 +1,47 @@
+<svg
+  width='100%'
+  height='100%'
+  viewBox='0 0 100 100'
+  xmlns='http://www.w3.org/2000/svg'
+>
+  <path
+    d='M 50 50 V 10'
+    stroke='hsl(70, 15%, 20%)'
+    stroke-width='10'
+    stroke-linecap='round'
+    stroke-linejoin='round'
+    class='spin'
+    style='animation-delay: -0.1s'
+  />
+
+  <path
+    d='M 50 50 V 10'
+    stroke='hsla(70, 15%, 20%, 0.66)'
+    stroke-width='10'
+    stroke-linecap='round'
+    stroke-linejoin='round'
+    class='spin'
+    style='animation-delay: -0.05s'
+  />
+
+  <path
+    d='M 50 50 V 10'
+    stroke='hsla(70, 15%, 20%, 0.33)'
+    stroke-width='10'
+    stroke-linecap='round'
+    stroke-linejoin='round'
+    class='spin'
+  />
+
+  <style type='text/css'>
+    .spin {
+      animation: spin 1s infinite linear;
+      transform-origin: 50% 100%;
+    }
+
+    @keyframes spin {
+      0%    { transform: rotate(0deg); }
+      100%  { transform: rotate(360deg); }
+    }
+  </style>
+</svg>
